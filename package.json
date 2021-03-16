@@ -7,7 +7,10 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts":{
-    "start-server":"cd packages/server && yarn run start-server"
+  "scripts": {
+    "start-server": "cd packages/server && yarn run start-server"
+  },
+  "dependencies": {
+    "serve": "^11.3.2"
   }
 }
