@@ -1,1 +1,1 @@
-web: lerna run start-server
+web: yarn run start-server
