@@ -1,0 +1,19 @@
+.button {
+  outline: 0;
+  background-color: aliceblue;
+  border-radius: 8px;
+  border: 0;
+  font-family: cursive;
+  font-weight: bolder;
+  width: 15%;
+  align-self: center;
+  margin: 5% 0% 5% 0%;
+  padding:0.5%;
+  cursor: pointer;
+  font-size: 0.8vw;
+}
+
+.button:hover {
+  background-image: linear-gradient(to top left, #401a40, #662866);
+  color: aliceblue;
+}

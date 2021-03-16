@@ -1,0 +1,9 @@
+.Container {
+  background-image: linear-gradient(to bottom right, #030103, #4a0d4a);
+  width: 100vw;
+  height: 100vh;
+  margin-left: 0%;
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+}

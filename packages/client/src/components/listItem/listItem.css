@@ -1,0 +1,50 @@
+.header {
+  font-size: 2vw;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.completed {
+  font-size: 0.7vw;
+  font-weight: 700;
+  width: 30%;
+  text-align: center;
+  color: aliceblue;
+  background-image: linear-gradient(to bottom right, #0a5c14, #11ab24);
+  padding: 1%;
+  border-radius: 8px;
+}
+
+.not-completed {
+  font-size: 0.7vw;
+  font-weight: 700;
+  width: 30%;
+  text-align: center;
+  color: aliceblue;
+  background-image: linear-gradient(to bottom right, #610a0a, #a80f0f);
+  padding: 1%;
+  border-radius: 8px;
+}
+
+/* .itemButtonGroup {
+  display: flex;
+  justify-content: space-between;
+  width: inherit;
+  padding: 1%;
+} */
+
+.content {
+  font-size: 1vw;
+  font-style: italic;
+  padding: 1%;
+}
+
+.listItem-container {
+  width: inherit;
+}
+
+.deleteTodo{
+  width: 100%;
+}

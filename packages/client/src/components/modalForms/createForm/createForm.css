@@ -1,0 +1,106 @@
+.modal {
+  position: fixed;
+  z-index: 2;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: -webkit-center;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.createForm {
+  border-radius: 8px;
+  margin-top: 10%;
+  padding: 1%;
+  width: 30%;
+  background-color: aliceblue;
+  font-size: 1vw;
+}
+
+.createButtonGroup {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1%;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.createFormContainer {
+  display: block;
+}
+
+.label {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+}
+
+.input {
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 2%;
+}
+
+.input:focus {
+  border: 0;
+  border-radius: 5px;
+  outline: 0;
+  box-shadow: 0 0 5px #05520e;
+}
+
+.createErrors {
+  font-size: 0.9vw;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1%;
+  color: red;
+}
+
+.createSubmit {
+  outline: 0;
+  background-color: aliceblue;
+  border-radius: 8px;
+  border: 0;
+  font-family: cursive;
+  font-weight: 800;
+  width: 15%;
+  align-self: center;
+  margin: 5% 0% 5% 0%;
+  padding: 0.5%;
+  cursor: pointer;
+  font-size: 0.8vw;
+}
+
+.createSubmit:hover {
+  background-image: linear-gradient(to bottom right, #0a5c14, #11ab24);
+  color: aliceblue;
+}
+
+.createCancel {
+  outline: 0;
+  background-color: aliceblue;
+  border-radius: 8px;
+  border: 0;
+  font-family: cursive;
+  font-weight: 800;
+  width: 15%;
+  align-self: center;
+  margin: 5% 0% 5% 0%;
+  padding: 0.5%;
+  cursor: pointer;
+  font-size: 0.8vw;
+}
+
+.createCancel:hover {
+  background-image: linear-gradient(to top left, #401a40, #662866);
+  color: aliceblue;
+}

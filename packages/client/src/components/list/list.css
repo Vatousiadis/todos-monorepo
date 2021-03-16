@@ -1,0 +1,43 @@
+.list {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+::marker {
+  font-size: 0;
+}
+
+.item-container {
+  width: 100%;
+  display: block;
+  padding: 0% 11%;
+}
+
+.listContainer {
+  font-family: cursive;
+  margin: 8% 0%;
+  align-self: center;
+  border-radius: 8px;
+  border: 1px solid aliceblue;
+  width: 50%;
+  background-color: aliceblue;
+  display: block;
+  display: flex;
+  flex-flow: column;
+  z-index: 1;
+}
+
+.itemButtonGroup {
+  display: flex;
+  justify-content: space-between;
+  width: inherit;
+  padding: 1%;
+}
+
+.entryText {
+  text-align: center;
+}
+
+.progress {
+  text-align: -webkit-center;
+}
