@@ -1,0 +1,1 @@
+web: lerna run start-server
