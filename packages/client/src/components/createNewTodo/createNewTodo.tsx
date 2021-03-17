@@ -2,18 +2,17 @@ import React from "react";
 import "./createNewTodo.css";
 
 type createNewTodoProps = {
-    onOpen: () => void;
+  onOpen: () => void;
 };
 
 const CreateNewTodo: React.FC<createNewTodoProps> = ({ onOpen }) => {
-
-    return (
-        <>
-            <button className="button" onClick={onOpen}>
-                Create New Todo
+  return (
+    <>
+      <button className="button" onClick={onOpen}>
+        Create New Todo
       </button>
-        </>
-    );
+    </>
+  );
 };
 
 export default CreateNewTodo;

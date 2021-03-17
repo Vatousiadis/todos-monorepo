@@ -1,19 +1,18 @@
-import React from 'react'
-import "./editTodo.css"
+import React from "react";
+import "./editTodo.css";
 
 type editTodoProps = {
-    onEditShow: () => void;
+  onEditShow: () => void;
 };
 
 const EditTodo: React.FC<editTodoProps> = ({ onEditShow }) => {
+  return (
+    <>
+      <button className="editButton" onClick={onEditShow}>
+        EDIT
+      </button>
+    </>
+  );
+};
 
-    return (
-        <>
-            <button className="editButton" onClick={onEditShow}>
-                EDIT
-        </button>
-        </>
-    )
-}
-
-export default EditTodo
+export default EditTodo;
