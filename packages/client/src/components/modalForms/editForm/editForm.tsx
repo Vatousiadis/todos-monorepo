@@ -36,14 +36,6 @@ const EditForm: React.FC<createFormProps> = ({
     }
   };
 
-  const deleteErrorMessage = (error: string) => {
-    if (errorMessages.includes(error)) {
-      setErrorMessages(errorMessages.filter((e) => e !== error));
-    } else {
-      return;
-    }
-  };
-
   const onSubmit = async (event: any) => {
     setIsLoading(true);
     event.preventDefault();
@@ -73,21 +65,11 @@ const EditForm: React.FC<createFormProps> = ({
   const handleTitle = (event: any) => {
     event.preventDefault();
     setTitle(event.target.value);
-    if (title || description) {
-      deleteErrorMessage(
-        "You must change at least one of either Title or Descript to edit this Todo"
-      );
-    }
   };
 
   const handleDescription = (event: any) => {
     event.preventDefault();
     setDescription(event.target.value);
-    if (title || description) {
-      deleteErrorMessage(
-        "You must change at least one of either Title or Descript to edit this Todo"
-      );
-    }
   };
 
   const handleCancel = () => {
@@ -142,15 +124,16 @@ const EditForm: React.FC<createFormProps> = ({
             </div>
             {isLoading ? <progress /> : null}
           </form>
-          {errorMessages &&
-            errorMessages.map((error, key) => (
-              <div
-                className={errorMessages ? "editErrors" : "hidden"}
-                key={key}
-              >
-                {error}
-              </div>
-            ))}
+          {!(title || description)
+            ? errorMessages.map((error, key) => (
+                <div
+                  className={errorMessages ? "editErrors" : "hidden"}
+                  key={key}
+                >
+                  {error}
+                </div>
+              ))
+            : null}
         </div>
       </div>
     </div>

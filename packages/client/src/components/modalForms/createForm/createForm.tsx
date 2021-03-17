@@ -28,14 +28,6 @@ const CreateForm: React.FC<createFormProps> = ({
     }
   };
 
-  const deleteErrorMessage = (error: string) => {
-    if (errorMessages.includes(error)) {
-      setErrorMessages(errorMessages.filter((e) => e !== error));
-    } else {
-      return;
-    }
-  };
-
   const onSubmit = async (event: any) => {
     setIsLoading(true);
     event.preventDefault();
@@ -51,6 +43,8 @@ const CreateForm: React.FC<createFormProps> = ({
         if (res.status === 200) {
           onClick();
           setRender();
+          setDescription("");
+          setTitle("");
         }
       } catch (error) {
         if (error.response.status === 409) {
@@ -65,21 +59,17 @@ const CreateForm: React.FC<createFormProps> = ({
   const handleTitle = (event: any) => {
     event.preventDefault();
     setTitle(event.target.value);
-    if (title && description) {
-      deleteErrorMessage(
-        "You must enter both a Title and a Description to create a new Todo"
-      );
-    }
   };
 
   const handleDescription = (event: any) => {
     event.preventDefault();
     setDescription(event.target.value);
-    if (title && description) {
-      deleteErrorMessage(
-        "You must enter both a Title and a Description to create a new Todo"
-      );
-    }
+  };
+
+  const handleCancel = () => {
+    onClick();
+    setDescription("");
+    setTitle("");
   };
 
   return (
@@ -94,6 +84,7 @@ const CreateForm: React.FC<createFormProps> = ({
                 type="text"
                 name="Title"
                 className="input"
+                value={title ? title : ""}
                 onChange={handleTitle}
               />
             </label>
@@ -104,11 +95,16 @@ const CreateForm: React.FC<createFormProps> = ({
                 type="text"
                 name="Description"
                 className="input"
+                value={description ? description : ""}
                 onChange={handleDescription}
               />
             </label>
             <div className="createButtonGroup">
-              <button className="createCancel" onClick={onClick} type="button">
+              <button
+                className="createCancel"
+                onClick={handleCancel}
+                type="button"
+              >
                 CANCEL
               </button>
               <button
@@ -122,15 +118,16 @@ const CreateForm: React.FC<createFormProps> = ({
             </div>
             {isLoading ? <progress /> : null}
           </form>
-          {errorMessages &&
-            errorMessages.map((error, key) => (
-              <div
-                className={errorMessages ? "createErrors" : "hidden"}
-                key={key}
-              >
-                {error}
-              </div>
-            ))}
+          {!(title && description)
+            ? errorMessages.map((error, key) => (
+                <div
+                  className={errorMessages ? "createErrors" : "hidden"}
+                  key={key}
+                >
+                  {error}
+                </div>
+              ))
+            : null}
         </div>
       </div>
     </div>
