@@ -1,19 +1,17 @@
 import React from "react";
-import CompleteTodo from "../completeTodo/completeTodo";
-import DeleteTodo from "../deleteTodo/deleteTodo";
-import EditTodo from "../editTodo/editTodo";
+
+//Components
+import CompleteTodo from "components/completeTodo/completeTodo";
+import DeleteTodo from "components/deleteTodo/deleteTodo";
+import EditTodo from "components/editTodo/editTodo";
+
+//Props
+import { listItemProps } from "componentProps/listItem.props";
+
+//Styles
 import "./listItem.css";
 
-type ListItemProps = {
-  title: string;
-  description: string;
-  completed: boolean;
-  handleCompleted: (event: any) => void;
-  onDeleteShow: () => void;
-  onEditShow: () => void;
-};
-
-const ListItem: React.FC<ListItemProps> = ({
+const ListItem: React.FC<listItemProps> = ({
   title,
   description,
   completed,

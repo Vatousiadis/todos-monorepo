@@ -1,5 +1,4 @@
-import React from "react";
-import List from "./components/list/list";
+import List from "modules/main/list/list";
 import "./App.css";
 
 function App() {

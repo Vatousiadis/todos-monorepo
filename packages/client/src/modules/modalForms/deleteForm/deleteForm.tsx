@@ -1,12 +1,10 @@
 import React from "react";
-import "./deleteForm.css";
 
-type deleteFormProps = {
-  display: boolean;
-  onCancel: () => void;
-  onDelete: (event: any) => void;
-  isLoading: boolean;
-};
+//Props
+import { deleteFormProps } from "componentProps/formProps/deleteForm.props";
+
+//Styles
+import "./deleteForm.css";
 
 const DeleteForm: React.FC<deleteFormProps> = ({
   display,

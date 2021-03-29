@@ -1,9 +1,10 @@
 import React from "react";
-import "./createNewTodo.css";
 
-type createNewTodoProps = {
-  onOpen: () => void;
-};
+//Props
+import { createNewTodoProps } from "componentProps/createNewTodo.props";
+
+//Styles
+import "./createNewTodo.css";
 
 const CreateNewTodo: React.FC<createNewTodoProps> = ({ onOpen }) => {
   return (

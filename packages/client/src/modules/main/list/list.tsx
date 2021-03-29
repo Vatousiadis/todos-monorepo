@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
-import ListItem from "../listItem/listItem";
-import client from "../../apis/todos";
-import "./list.css";
-import CreateNewTodo from "../createNewTodo/createNewTodo";
-import EditForm from "../modalForms/editForm/editForm";
-import DeleteForm from "../modalForms/deleteForm/deleteForm";
-import CreateForm from "../modalForms/createForm/createForm";
 
-interface todoData {
-  title: string;
-  description: string;
-  completed: boolean;
-  _id: string;
-}
+//Api
+import client from "apis/todos";
+
+//Components
+import ListItem from "components/listItem/listItem";
+import CreateNewTodo from "components/createNewTodo/createNewTodo";
+import EditForm from "modules/modalForms/editForm/editForm";
+import DeleteForm from "modules/modalForms/deleteForm/deleteForm";
+import CreateForm from "modules/modalForms/createForm/createForm";
+
+//Props
+import { todoData } from "modulesProps/list.props";
+
+//Styles
+import "./list.css";
 
 const defaultTodo: todoData[] = [];
 
@@ -109,7 +111,7 @@ const List: React.FC = () => {
       <CreateNewTodo onOpen={() => setCreateDisplay(true)} />
       <ul className="list">
         <div className="item-container">
-          {todos.length > 0 ? (
+          {todos.length > 0 ? ( //check if the any items exist in database
             todos.map((todo, key) => (
               <li>
                 <ListItem
@@ -123,10 +125,10 @@ const List: React.FC = () => {
                 />
               </li>
             ))
-          ) : !isLoading ? (
+          ) : !isLoading ? ( //if not display message
             <div className="entryText">Create a new Todo to start with!</div>
           ) : null}
-          {isLoading ? (
+          {isLoading ? ( //if items exist show loader until items load into DOM
             <div className="progress">
               <progress />
             </div>

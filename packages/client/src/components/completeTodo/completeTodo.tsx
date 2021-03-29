@@ -1,10 +1,10 @@
 import React from "react";
-import "./completeTodo.css";
 
-type completeTodoProps = {
-  statusChange: string;
-  handleCompleted: (event: any) => void;
-};
+//Props
+import { completeTodoProps } from "componentProps/completeTodo.props";
+
+//Styles
+import "./completeTodo.css";
 
 const CompleteTodo: React.FC<completeTodoProps> = ({
   statusChange,

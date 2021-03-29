@@ -1,32 +1,25 @@
 import React, { useState } from "react";
-import client from "../../../apis/todos";
-import "./editForm.css";
 
-type createFormProps = {
-  editDisplay: boolean;
-  onClick: () => void;
-  setRender: () => void;
-  todoId: string;
-  todoStatus: boolean;
-  existingDescription: string;
-  existingTitle: string;
-};
+//Api
+import client from "apis/todos";
 
-const EditForm: React.FC<createFormProps> = ({
+//Props
+import { createFormProps } from "componentProps/formProps/createFrom.props";
+
+//Styles
+import "./createForm.css";
+
+const CreateForm: React.FC<createFormProps> = ({
   onClick,
-  editDisplay,
+  display,
   setRender,
-  todoId,
-  todoStatus,
-  existingDescription,
-  existingTitle,
 }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [errorMessages, setErrorMessages] = useState<string[]>([
-    "You must change at least one of either Title or Descript to edit this Todo",
-  ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessages, setErrorMessages] = useState<string[]>([
+    "You must enter both a Title and a Description to create a new Todo",
+  ]);
 
   const populateErrorMessages = (error: string) => {
     if (errorMessages.includes(error)) {
@@ -40,12 +33,12 @@ const EditForm: React.FC<createFormProps> = ({
     setIsLoading(true);
     event.preventDefault();
 
-    if (title || description) {
+    if (title && description) {
       try {
-        const res = await client.put(`todo/${todoId}`, {
-          title: title ? title : existingTitle,
-          description: description ? description : existingDescription,
-          completed: todoStatus,
+        const res = await client.post(`todo/create`, {
+          title: title,
+          description: description,
+          completed: false,
         });
         setIsLoading(false);
         if (res.status === 200) {
@@ -56,7 +49,9 @@ const EditForm: React.FC<createFormProps> = ({
         }
       } catch (error) {
         if (error.response.status === 409) {
-          populateErrorMessages("Item Could not be updated");
+          populateErrorMessages(
+            "A Todo with the same title already exists, please choose a different title"
+          );
         }
       }
     }
@@ -79,17 +74,17 @@ const EditForm: React.FC<createFormProps> = ({
   };
 
   return (
-    <div className={editDisplay ? "show" : "hidden"}>
+    <div className={display ? "show" : "hidden"}>
       <div className="modal">
-        <div className="editForm">
-          <form className="formContainer" onSubmit={onSubmit}>
+        <div className="createForm">
+          <form className="createFormContainer" onSubmit={onSubmit}>
             <label className="label">
               Title
               <input
                 autoComplete="off"
                 type="text"
                 name="Title"
-                className="editInput"
+                className="input"
                 value={title ? title : ""}
                 onChange={handleTitle}
               />
@@ -100,34 +95,34 @@ const EditForm: React.FC<createFormProps> = ({
                 autoComplete="off"
                 type="text"
                 name="Description"
-                className="editInput"
+                className="input"
                 value={description ? description : ""}
                 onChange={handleDescription}
               />
             </label>
-            <div className="editButtonGroup">
+            <div className="createButtonGroup">
               <button
-                className="editCancel"
+                className="createCancel"
                 onClick={handleCancel}
                 type="button"
               >
                 CANCEL
               </button>
               <button
-                className="editSubmit"
+                className="createSubmit"
                 type="submit"
                 onClick={onSubmit}
-                disabled={!(title || description)}
+                disabled={!(title && description)}
               >
                 SUBMIT
               </button>
             </div>
             {isLoading ? <progress /> : null}
           </form>
-          {!(title || description)
+          {!(title && description)
             ? errorMessages.map((error, key) => (
                 <div
-                  className={errorMessages ? "editErrors" : "hidden"}
+                  className={errorMessages ? "createErrors" : "hidden"}
                   key={key}
                 >
                   {error}
@@ -140,4 +135,4 @@ const EditForm: React.FC<createFormProps> = ({
   );
 };
 
-export default EditForm;
+export default CreateForm;

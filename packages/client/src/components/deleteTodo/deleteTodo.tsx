@@ -1,11 +1,12 @@
 import React from "react";
+
+//Props
+import { deleteTodoProps } from "componentProps/deleteTodo.props";
+
+//Styles
 import "./deleteTodo.css";
 
-type deleteToDoProps = {
-  onDeleteShow: () => void;
-};
-
-const DeleteTodo: React.FC<deleteToDoProps> = ({ onDeleteShow }) => {
+const DeleteTodo: React.FC<deleteTodoProps> = ({ onDeleteShow }) => {
   return (
     <>
       <button className="deleteButton" onClick={onDeleteShow}>

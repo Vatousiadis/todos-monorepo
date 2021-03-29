@@ -1,9 +1,10 @@
 import React from "react";
-import "./editTodo.css";
 
-type editTodoProps = {
-  onEditShow: () => void;
-};
+//Props
+import { editTodoProps } from "componentProps/editTodo.props";
+
+//Styles
+import "./editTodo.css";
 
 const EditTodo: React.FC<editTodoProps> = ({ onEditShow }) => {
   return (
