@@ -19,20 +19,22 @@ import "./list.css";
 const defaultTodo: todoData[] = [];
 
 const List: React.FC = () => {
-  const [editDisplay, setEditDisplay] = useState(false);
-  const [createDisplay, setCreateDisplay] = useState(false);
-  const [deleteDisplay, setDeleteDisplay] = useState(false);
-  const [render, setRender] = useState(false);
-  const [todosId, setTodosId] = useState("");
-  const [completed, setCompleted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [deleteLoading, setDeleteLoading] = useState(false);
-  const [existingDescription, setExistingDescription] = useState("");
-  const [existingtitle, setExistingtitle] = useState("");
+  const [editDisplay, setEditDisplay] = useState<boolean>(false);
+  const [createDisplay, setCreateDisplay] = useState<boolean>(false);
+  const [deleteDisplay, setDeleteDisplay] = useState<boolean>(false);
+  const [render, setRender] = useState<boolean>(false);
+  const [todosId, setTodosId] = useState<string>("");
+  const [completed, setCompleted] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
+  const [existingDescription, setExistingDescription] = useState<string>("");
+  const [existingtitle, setExistingtitle] = useState<string>("");
+  const [error, setError]: [string, (error: string) => void] = useState<string>(
+    ""
+  );
   const [todos, setTodos]: [todoData[], (todos: todoData[]) => void] = useState(
     defaultTodo
   );
-  const [error, setError]: [string, (error: string) => void] = useState("");
 
   const getData = () => {
     client

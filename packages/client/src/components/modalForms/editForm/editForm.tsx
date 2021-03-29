@@ -18,12 +18,12 @@ const EditForm: React.FC<editFormProps> = ({
   existingDescription,
   existingTitle,
 }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
   const [errorMessages, setErrorMessages] = useState<string[]>([
     "You must change at least one of either Title or Descript to edit this Todo",
   ]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const populateErrorMessages = (error: string) => {
     if (errorMessages.includes(error)) {

@@ -14,9 +14,9 @@ const CreateForm: React.FC<createFormProps> = ({
   display,
   setRender,
 }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessages, setErrorMessages] = useState<string[]>([
     "You must enter both a Title and a Description to create a new Todo",
   ]);
