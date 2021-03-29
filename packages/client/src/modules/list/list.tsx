@@ -6,9 +6,9 @@ import client from "apis/todos";
 //Components
 import ListItem from "components/listItem/listItem";
 import CreateNewTodo from "components/createNewTodo/createNewTodo";
-import EditForm from "modules/modalForms/editForm/editForm";
-import DeleteForm from "modules/modalForms/deleteForm/deleteForm";
-import CreateForm from "modules/modalForms/createForm/createForm";
+import EditForm from "components/modalForms/editForm/editForm";
+import DeleteForm from "components/modalForms/deleteForm/deleteForm";
+import CreateForm from "components/modalForms/createForm/createForm";
 
 //Props
 import { todoData } from "modulesProps/list.props";
