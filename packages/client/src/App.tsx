@@ -1,10 +1,10 @@
-import List from "modules/list/list";
+import { List } from "modules/list"
 import "./App.css";
 
 function App() {
   return (
     <>
-      <div className="Container">
+      <div className="container">
         <List />
       </div>
     </>

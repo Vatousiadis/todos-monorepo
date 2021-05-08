@@ -9,7 +9,7 @@ import { createFormProps } from "componentProps/formProps/createFrom.props";
 //Styles
 import "./createForm.css";
 
-const CreateForm: React.FC<createFormProps> = ({
+export const CreateForm: React.FC<createFormProps> = ({
   onClick,
   display,
   setRender,
@@ -135,4 +135,4 @@ const CreateForm: React.FC<createFormProps> = ({
   );
 };
 
-export default CreateForm;
+

@@ -1,12 +1,11 @@
-var express = require("express");
-var MongoClient = require("mongodb").MongoClient;
-var mongo = require("mongodb");
-var router = express.Router();
-const { checkSchema, validationResult } = require("express-validator");
+const express = require("express");
+const MongoClient = require("mongodb").MongoClient;
+const mongo = require("mongodb");
+const router = express.Router();
+const { validationResult } = require("express-validator");
 const { body } = require("express-validator/check");
 
-var url =
-  "mongodb+srv://admin:admin@todos.e54ce.mongodb.net/todos?retryWrites=true&w=majority";
+const url = `mongodb+srv://admin:admin@todos.e54ce.mongodb.net/todos?retryWrites=true&w=majority`;
 
 router.get("/todos", function (req, res) {
   MongoClient.connect(url, async (err, db) => {

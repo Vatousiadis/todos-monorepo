@@ -9,7 +9,7 @@ import { editFormProps } from "componentProps/formProps/editForm.props";
 //Styles
 import "./editForm.css";
 
-const EditForm: React.FC<editFormProps> = ({
+export const EditForm: React.FC<editFormProps> = ({
   onClick,
   editDisplay,
   setRender,
@@ -123,13 +123,13 @@ const EditForm: React.FC<editFormProps> = ({
           </form>
           {!(title || description)
             ? errorMessages.map((error, key) => (
-                <div
-                  className={errorMessages ? "editErrors" : "hidden"}
-                  key={key}
-                >
-                  {error}
-                </div>
-              ))
+              <div
+                className={errorMessages ? "editErrors" : "hidden"}
+                key={key}
+              >
+                {error}
+              </div>
+            ))
             : null}
         </div>
       </div>
@@ -137,4 +137,4 @@ const EditForm: React.FC<editFormProps> = ({
   );
 };
 
-export default EditForm;
+

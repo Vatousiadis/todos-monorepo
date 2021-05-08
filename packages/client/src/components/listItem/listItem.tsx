@@ -1,9 +1,9 @@
 import React from "react";
 
 //Components
-import CompleteTodo from "components/completeTodo/completeTodo";
-import DeleteTodo from "components/deleteTodo/deleteTodo";
-import EditTodo from "components/editTodo/editTodo";
+import { CompleteTodo } from "components/completeTodo";
+import { DeleteTodo } from "components/deleteTodo";
+import { EditTodo } from "components/editTodo";
 
 //Props
 import { listItemProps } from "componentProps/listItem.props";
@@ -11,7 +11,7 @@ import { listItemProps } from "componentProps/listItem.props";
 //Styles
 import "./listItem.css";
 
-const ListItem: React.FC<listItemProps> = ({
+export const ListItem: React.FC<listItemProps> = ({
   title,
   description,
   completed,
@@ -50,4 +50,3 @@ const ListItem: React.FC<listItemProps> = ({
   );
 };
 
-export default ListItem;

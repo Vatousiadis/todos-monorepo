@@ -6,7 +6,7 @@ import { deleteFormProps } from "componentProps/formProps/deleteForm.props";
 //Styles
 import "./deleteForm.css";
 
-const DeleteForm: React.FC<deleteFormProps> = ({
+export const DeleteForm: React.FC<deleteFormProps> = ({
   display,
   onCancel,
   onDelete,
@@ -32,4 +32,3 @@ const DeleteForm: React.FC<deleteFormProps> = ({
   );
 };
 
-export default DeleteForm;

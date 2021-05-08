@@ -6,7 +6,7 @@ import { completeTodoProps } from "componentProps/completeTodo.props";
 //Styles
 import "./completeTodo.css";
 
-const CompleteTodo: React.FC<completeTodoProps> = ({
+export const CompleteTodo: React.FC<completeTodoProps> = ({
   statusChange,
   handleCompleted,
 }) => {
@@ -17,4 +17,3 @@ const CompleteTodo: React.FC<completeTodoProps> = ({
   );
 };
 
-export default CompleteTodo;

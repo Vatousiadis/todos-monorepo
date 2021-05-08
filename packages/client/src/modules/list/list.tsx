@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import client from "apis/todos";
 
 //Components
-import ListItem from "components/listItem/listItem";
-import CreateNewTodo from "components/createNewTodo/createNewTodo";
-import EditForm from "components/modalForms/editForm/editForm";
-import DeleteForm from "components/modalForms/deleteForm/deleteForm";
-import CreateForm from "components/modalForms/createForm/createForm";
+import { ListItem } from "components/listItem";
+import { CreateNewTodo } from "components/createNewTodo";
+import { EditForm } from "components/modalForms/editForm";
+import { DeleteForm } from "components/modalForms/deleteForm";
+import { CreateForm } from "components/modalForms/createForm";
 
 //Props
 import { todoData } from "modulesProps/list.props";
@@ -18,7 +18,7 @@ import "./list.css";
 
 const defaultTodo: todoData[] = [];
 
-const List: React.FC = () => {
+export const List: React.FC = () => {
   const [editDisplay, setEditDisplay] = useState<boolean>(false);
   const [createDisplay, setCreateDisplay] = useState<boolean>(false);
   const [deleteDisplay, setDeleteDisplay] = useState<boolean>(false);
@@ -39,12 +39,12 @@ const List: React.FC = () => {
   const getData = () => {
     client
       .get<todoData[]>("todos")
-      .then((response) => {
+      .then((response: any) => {
         setTodos(response.data);
         setRender(true);
         setIsLoading(false);
       })
-      .catch((er) => {
+      .catch((er: any) => {
         const err = (er.response.status = 404
           ? "Data not found"
           : "Unexpected error");
@@ -64,7 +64,7 @@ const List: React.FC = () => {
           ...todo,
           completed: !todo.completed,
         })
-        .then((res) => {
+        .then((res: any) => {
           const updated = todos.map((el) => {
             if (res.data._id === el._id) {
               return res.data;
@@ -80,7 +80,7 @@ const List: React.FC = () => {
   const handleDelete = (todosId: string) => {
     setDeleteLoading(true);
     if (todos) {
-      const response = client.delete(`todo/${todosId}`, {}).then((res) => {
+      const response = client.delete(`todo/${todosId}`, {}).then((res: any) => {
         setDeleteLoading(false);
         const updated = todos.map((el) => {
           if (res.data._id === el._id) {
@@ -161,4 +161,3 @@ const List: React.FC = () => {
   );
 };
 
-export default List;
